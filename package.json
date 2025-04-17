@@ -6,16 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview","logs": {
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "start": "node logs.js"
-  },
-  "dependencies": {
-    "winston": "^3.8.2"
-  }
-}
+    "preview": "vite preview",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc"
   },
