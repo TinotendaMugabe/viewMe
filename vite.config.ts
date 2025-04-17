@@ -39,4 +39,10 @@ export default defineConfig({
     },
   },
   publicDir: path.resolve(import.meta.dirname, "public"),
+  server: {
+    fs: {
+      strict: false,
+      allow: ['..']
+    }
+  }
 });
