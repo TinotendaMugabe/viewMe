@@ -8,11 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Serve static files from public directory
-const publicPath = path.join(process.cwd(), 'public');
-app.use(express.static(publicPath, {
-  maxAge: '1y',
-  immutable: true
-}));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -42,16 +38,6 @@ app.use((req, res, next) => {
   });
 
   next();
-});
-
-// Error handling middleware
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.error('Error:', err);
-  res.status(500).json({
-    error: 'Internal Server Error',
-    message: err.message,
-    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
-  });
 });
 
 (async () => {
