@@ -6,14 +6,17 @@
       "use": "@vercel/node"
     },
     {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
     },
     {
       "src": "/(.*)",
